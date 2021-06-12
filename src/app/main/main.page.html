@@ -1,0 +1,20 @@
+<ion-header style="height: 10%; display: flex; text-align: center; background-color: #eb882d">
+    <div style="width: 30%">
+      <h2>Shots: {{this.shots}}</h2>
+    </div>
+    <div style="width: 30%">
+      <h2>Targets: {{this.figures.length}}</h2>
+    </div>
+  <div style="width: 40%">
+    <ion-button style="margin-top: 12%" (click)="startGame()">Restart</ion-button>
+  </div>
+</ion-header>
+<ion-content padding no-bounce>
+  <div  style="position: relative;">
+    <canvas style="position: absolute; z-index: 2"
+             #draw (touchstart)="start($event)" (touchmove)="move($event)" (touchend)="end()">
+    </canvas>
+    <canvas style="position: absolute; z-index: 1;" #field></canvas>
+    <canvas style="position: absolute; z-index: 0;" #background></canvas>
+  </div>
+</ion-content>
